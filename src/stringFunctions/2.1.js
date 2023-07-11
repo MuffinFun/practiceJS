@@ -1,20 +1,22 @@
 "use strict";
 
-const arr = [
-  [11, 12, 4, 1],
-  [2, 22, 2, 1],
-  [10, 5, 7, 1],
-  [1, 1, 1, 1],
-];
+// const toMachineName = (name, separator) => {
+//   const regEx = /, /gi;
+//   return name
+//     .replace(regEx, " ")
+//     .split(" ")
+//     .map((e, _, arr) => {
+//       e.toLowerCase();
+//     })
+//     .join(separator);
+// };
+// console.log(toMachineName("Hello, my name is Andrew", "-"));
 
-sumAverage(arr);
-console.log(arr);
-
-function sumAverage(arr) {
-  const result = arr.map((item) => {
-    return item.reduce((prev, curr) => prev + curr, 0) / item.length;
-  });
-  console.log(result);
-  console.log(Math.floor(result.reduce((prev, curr) => prev + curr, 0)));
-  return Math.floor(result.reduce((prev, curr) => prev + curr, 0));
-}
+const toMachine = (name, separator) => {
+  return name
+    .replace(/^\d+/, " ")
+    .trim()
+    .replace(/[,.\/!@#$%\^&\*()\-_=`~;:]/g, "")
+    .replace(/ +/g, separator);
+};
+console.log(toMachine("3 bas@ic%s        and 1 adv$an#ce", "-"));
